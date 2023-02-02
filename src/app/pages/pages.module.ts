@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
+
+//Modulos
+import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
+
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
-import { SharedModule } from '../shared/shared.module';
-import { AppRoutingModule } from '../app-routing.module';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -25,7 +31,10 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     CommonModule, //IMPORTANTE
     SharedModule, //Se importa en sharedModule y no en el modulo principal (app.module) porque los compnentes y servicios de este modulo no seran usados en nada que tenga que ver con el auth (pues son header y footer y sidebar) solo es necesario importarlos en pages.module pues aqui siempre estaran presentes
-    AppRoutingModule //ES NECESARIO IMPORTAR EL ROUTING MODULE SINO EL <router-outlet></router-outlet> NO FUNCIONARA
+    AppRoutingModule, //ES NECESARIO IMPORTAR EL ROUTING MODULE SINO EL <router-outlet></router-outlet> NO FUNCIONARA
+    FormsModule,
+    ComponentsModule,
+    ChartsModule
   ]
 
 })
